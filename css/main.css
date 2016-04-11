@@ -1,0 +1,40 @@
+/*TOP*/
+
+
+body {
+  margin: auto;
+}
+
+.container {
+  width: 600px;
+  background: lightgrey;
+}
+
+
+
+/*MIDDLE*/
+
+img {
+  width: 600px;
+}
+
+h3 {
+  text-align: center;
+}
+
+h5 {
+  text-align: center;
+}
+
+
+
+/*BOTTOM*/
+
+footer {
+  background-color: grey;
+  padding: 50px;
+  margin-bottom:
+}
+p {
+  text-align: center;
+}
