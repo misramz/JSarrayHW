@@ -27,13 +27,22 @@ var answer1 = "The average price is $" + final;
 // Find my "answer" area in the DOM
 var answer1Area = document.querySelector('#answer1');
 
-// Put our answer on the page
-answer1Area.innerHTML = answer1;
+// // Put our answer on the page
+// answer1Area.innerHTML = answer1;
 
 
 // 2.
 
-var items = [14, 15, 16, 17, 18];
+var prices = items.filter( function (item) {
+ return item.price > 14 && item.price < 18;
+});
+console.log(prices);
+
+var titles = something.forEach( function (){
+  console.console.log(ti);
+})
+ //
+ // item.price = x > 14, x < 18;
 
 
 
@@ -44,5 +53,5 @@ var items = [14, 15, 16, 17, 18];
 
 // 4.
 var woodyItems = items.filter(function(item) {
-  return item.materials 
-}
+  return item.materials
+});
