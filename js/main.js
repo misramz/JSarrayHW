@@ -38,7 +38,7 @@ var prices = items.filter( function (item) {
 });
 console.log(prices);
 
-var titles = something.forEach( function (){
+var titles = something.forEach( function (title){
   console.console.log(ti);
 })
  //
@@ -47,6 +47,10 @@ var titles = something.forEach( function (){
 
 
 // 3.
+
+ var codes = items.filter( function (code) {
+   
+ })
 
 
 
