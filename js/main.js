@@ -1,61 +1,115 @@
 
-// 1. Show me how to calculate the average price of all items.
 
 
-// To get a sum of all prices, we first need all prices
-// This `map` will give us an array of all prices
-var allPrices = items.map( function (item) {
+var itemPrices = items.map( function (item) {
   return item.price;
 });
 
-// Now that I have all the prices, we can `reduce` them down to
-// a single value, which is the sum of all prices
-var priceSum = allPrices.reduce(function (prev, curr) {
-  return prev + curr;
+// 2. Get the sum of all Prices
+var sum = function (a, b) {
+  return a + b;
+}
+var itemPriceSum = itemPrices.reduce(sum);
+var avgPrice = itemPriceSum / items.length;
+
+avgPrice = avgPrice.toFixed(2);
+var answer1 = '<p>The average price is $' + avgPrice + '.</p>';
+
+// 5. print answer on page
+var answer1Area = document.querySelector('#a1');
+answer1Area.innerHTML = answer1;
+
+
+// Number 2 ---------------------------------------------
+
+var title = items.filter(function(item) {
+  if (item.price >= 14.00 && item.price <= 18.00) {
+    return item.price
+  }
+
 });
 
-// Once we have the sum, we can divide by the number (length) of
-// items we have
-var avg = priceSum / items.length;
-
-// Let's now round that to 2 decimals
-var final = avg.toFixed(2);
-
-// Finally, lets build our answer string
-var answer1 = "The average price is $" + final;
-
-// Find my "answer" area in the DOM
-var answer1Area = document.querySelector('#answer1');
-
-// // Put our answer on the page
-// answer1Area.innerHTML = answer1;
+var answer2 = document.querySelector('#a2');
 
 
-// 2.
+title.forEach(function(singleitem){
 
-var prices = items.filter( function (item) {
- return item.price > 14 && item.price < 18;
+var area = document.createElement('p');
+var result = document.createTextNode(singleitem.title);
+
+area.appendChild(result);
+
+answer2.appendChild(area);
 });
-console.log(prices);
 
-var titles = something.forEach( function (title){
-  console.console.log(ti);
-})
- //
- // item.price = x > 14, x < 18;
+// ----------------------------------- 3
 
-
-
-// 3.
-
- var codes = items.filter( function (code) {
-   
- })
-
-
-
-
-// 4.
-var woodyItems = items.filter(function(item) {
-  return item.materials
+var amount = items.filter(function(items) {
+  return items.currency_code === 'GBP';
 });
+
+amount.forEach (function (x){
+  var answer3 = x.title + ' cost £18.';
+
+  var area = document.querySelector('#a3');
+  area.innerHTML = answer3;
+});
+
+// ---------------------------------- 4
+
+var wood = items.filter(function (item) {
+  return item.materials.indexOf('wood') >= 0;
+});
+
+var area = document.querySelector('#a4');
+
+wood.forEach( function (item) {
+
+  var answer = document.createElement('p');
+
+  answer.innerHTML = item.title + ' is made of wood';
+  area.appendChild(answer);
+});
+
+// -------------------------- 5
+
+var materialSearch = items.filter(function(item){
+  return item.materials.length >= 8;
+});
+
+
+materialSearch.forEach (function(item) {
+
+  var answer5 = document.querySelector('#a5');
+
+  var para = document.createElement('p');
+
+  para.innerHTML = item.title + ' has ' + item.materials.length + ' materials:';
+
+  answer5.appendChild(para);
+
+  var ul = document.createElement('ul');
+
+  item.materials.forEach(function(material){
+
+  var li = document.createElement('li');
+
+  li.innerHTML= material;
+
+  ul.appendChild(li)
+  });
+  answer5.appendChild(ul);
+});
+
+
+// -------------------------- 6
+
+var madeitems = items.filter(function (items) {
+  return items.who_made === 'i_did';
+
+});
+
+let answer6 = madeitems.length + 'were made by their sellers';
+
+var area = document.querySelector('#a6');
+area.innerHTML = answer6;
